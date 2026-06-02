@@ -10,9 +10,6 @@ public class Main {
         frame.setLocationRelativeTo(null);
         DisplayPanel panel = new DisplayPanel();
         frame.add(panel);
-
         frame.setVisible(true);
-
-
     }
 }

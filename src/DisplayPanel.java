@@ -1,19 +1,20 @@
 import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class DisplayPanel extends JPanel implements KeyListener {
+public class DisplayPanel extends JPanel implements ActionListener,KeyListener,MouseListener {
     private int heroX;
     private int heroY;
     private BufferedImage hero;
     private BufferedImage background;
+    private JButton attack;
+    private JButton defend;
+    private JMenu spells;
+    private JMenuItem poison,fireball;
 
     public DisplayPanel () {
         heroX = 0;
@@ -25,7 +26,19 @@ public class DisplayPanel extends JPanel implements KeyListener {
             System.out.println(e.getMessage());
         }
         addKeyListener(this);
+        attack = new JButton("Attack");
+        defend = new JButton("Defend");
+        spells = new JMenu("Spells");
+        poison = new JMenuItem("poison");
+        spells.add(poison);
+        add(attack);
+        add(defend);
+        add(spells);
+        attack.setVisible(true);
+        defend.setVisible(true);
+        spells.setVisible(true);
     }
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -58,9 +71,27 @@ public class DisplayPanel extends JPanel implements KeyListener {
 
     }
 
-    public void moveHero() {
-        heroX += 5;
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
     }
+
+    public void mousePressed (MouseEvent e) {}
+
+    public void mouseReleased (MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
 
     public void actionPerformed (ActionEvent e) {
 
